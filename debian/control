@@ -1,15 +1,53 @@
-Source: template-repository
-Section: unknown
+Source: haskell-byteorder
+Maintainer: Debian Haskell Group <pkg-haskell-maintainers@lists.alioth.debian.org>
+Uploaders: Clint Adams <clint@debian.org>
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Section: haskell
+Rules-Requires-Root: no
+Build-Depends: debhelper (>= 10),
+ haskell-devscripts (>= 0.13),
+ cdbs,
+ ghc (>= 8),
+ ghc-prof,
+Build-Depends-Indep: ghc-doc,
+Standards-Version: 4.6.1
+Homepage: http://community.haskell.org/~aslatter/code/byteorder
+Vcs-Browser: https://salsa.debian.org/haskell-team/DHG_packages/tree/master/p/haskell-byteorder
+Vcs-Git: https://salsa.debian.org/haskell-team/DHG_packages.git [p/haskell-byteorder]
 
-Package: template-repository
+Package: libghc-byteorder-dev
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Depends: ${haskell:Depends},
+ ${shlibs:Depends},
+ ${misc:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Provides: ${haskell:Provides},
+Description: exposes the native endianness or byte ordering of the system${haskell:ShortBlurb}
+ This is for working with the native byte-ordering of the system.
+ .
+ ${haskell:Blurb}
+
+Package: libghc-byteorder-prof
+Architecture: any
+Depends: ${haskell:Depends},
+ ${misc:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Provides: ${haskell:Provides},
+Description: exposes the native endianness of the system${haskell:ShortBlurb}
+ This is for working with the native byte-ordering of the system.
+ .
+ ${haskell:Blurb}
+
+Package: libghc-byteorder-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends},
+ ${haskell:Depends},
+Recommends: ${haskell:Recommends},
+Suggests: ${haskell:Suggests},
+Description: exposes the native endianness or byte ordering of the system${haskell:ShortBlurb}
+ This is for working with the native byte-ordering of the system.
+ .
+ ${haskell:Blurb}
